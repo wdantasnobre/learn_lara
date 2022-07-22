@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ListingController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Listing;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +15,63 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// All listings
+// Route::get('/', function () {
+//     return view('/listings', [
+//         'listings' => Listing::all()
+//         ]
+//     );
+// });
+Route::get('/', [ListingController::class, 'index' ]);
 
-Route::get('/', function () {
-    return view('welcome');
+//Single listing
+/*
+Route::get('/listing/{id}', function ($id) {
+    $listing => Listing::find($id);
+    if ($listing) {
+        return view('listing',[
+            'listing' => Listing::find($id);
+            ]
+        );    
+    } else {
+        abort('404');
+    }
+   
 });
+*/
+//Single listing other way eloquent model
+// Route::get('/listing/{listing}', function (Listing $listing) {
+//         return view('listing',[
+//             'listing' =>  $listing
+//             ]
+//         );    
+// });
+
+
+
+
+Route::get('/hello', function() {
+    return response('<h1>Hello world</h1>', 200)
+    ->header('Content-Type', 'text/plain')
+    -> header('foo', 'bar');
+});
+
+Route::get('/posts/{id}', function ($id) {
+    return response('Post ' . $id);
+})->where('id', '[0-9]+');
+
+Route::get('/search', function (Request $request){
+    dd($request);
+});
+
+Route::get('/listings/create', [ListingController::class, 'create' ]);
+
+//store listing Data
+Route::post('/listing', [ListingController::class, 'store']);
+
+
+
+//single listing
+Route::get('/listing/{listing}', [ListingController::class, 'show']);
+
+
