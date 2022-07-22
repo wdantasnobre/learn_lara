@@ -1,0 +1,84 @@
+extension name space resolver .. help to import many class.
+blade .. directive and simplify show a variable two curlybraces {{}}
+
+php artisan make:migration create_listings_table => create a file migration
+php artisan migrate => create the table from migrantion files in the database
+
+php artisan db:seed => populating the table users in the database with fake information
+
+database seeder uncoment the file Userfactory.php line 17
+
+php artisan make: model Listing => create a model Listing extends the class model
+
+php artisan make:factory ListingFactory => create a file Listing for factory fake data
+
+php artisan migrate:refresh --seed => populating a database with fake information 
+
+
+docker cp learn_lara-php-1 :/etc/apache2/ ./src/docker/apache_conf/
+
+docker cp httpd.conf <yourcontainer_name>:/path/to/httpd.conf
+
+docker cp [OPTIONS] learn_lara-php-1:SRC_PATH DEST_PATH|-
+
+compassionate_darwin:/tmp/foo/myfile.txt
+
+docker cp -L learn_lara-php-1:/etc/apache2/apache2.conf ./docker/apache_conf
+
+
+
+to configure localhost as var/www/html/project_name/public you have to edit the virtual host file in apache conf, in my case /etc/apache2/sites-enabled/000-default.conf
+in Virtual host config set ServerName "nomeserver" as the name that apache is going to find the files to show in brownser
+Routes => a2enmod rewrite
+
+<x-card> the content inside this tag I can take with variable {{$slot}}
+
+Common resource Routes
+
+// index - Show all listings
+// show - Show single listing
+// create - Show form to create new listing
+// store - Store new listing 
+// edit - Show form to edit listing 
+// update - Update listing 
+// destroy - Delete listing 
+
+@yield is principally used to define a section in a layout and is constantly used to get content from a child page unto a master page
+
+x before the name of component mean that we should find the component in the foldder components.
+
+fillable property is some type of pretection that laravel use in the moment of send data do database => to avoid this error we have to add the follow line in the Model .. below os use HasFactory, pretected $filaable = ["title", "company", .... fields of form]
+ 
+// tutorial install wsl2 windows
+
+* microsoft store install ubuntu 22.04
+* executar ubuntu .. enter user e password
+* after that my ubuntu will be listed in shell with command wsl --list
+* https://docs.microsoft.com/pt-br/windows/wsl/install
+* see version installed wsl -l -v
+
+ composer require itsgoingd/clockwork
+ install clockwork that we can get information about our envoriment system, performance
+ 
+ 
+ 
+ 
+ php artisan vendor:publish
+ 
+ return view('listings.index', [
+                  'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(4) //with simplePaginate instead of paginate we can paginate without numbers
+				  
+				  pagination
+
+in the view  only this 
+
+<div class="mt-6 p-4">
+   {{$listings->links()}}
+</div>
+
+
+AlpineJS .. minimal framework that have many interesting thins to do with him 
+
+
+for see images with laravel in URL path .. we had to type this command 
+php artisan storage:link
